@@ -24,7 +24,7 @@ export default function Discount(props: IDiscount) {
       {showApplyDiscount && (
         <div className="flex flex-row items-center mt-m mb-s">
           <input
-            className="border flex flex-1 border-secondary rounded-s px-s py-xxs text-xs text-[#77706d] focus-visible:outline-primary"
+            className="border flex flex-1 border-secondary rounded-s px-xs py-xxs text-[#77706d] focus-visible:outline-primary"
             value={discountCode}
             placeholder="Enter discount code"
             onChange={(e) => setDiscountCode(e.target.value)}
@@ -34,7 +34,7 @@ export default function Discount(props: IDiscount) {
             buttonText="Apply"
             fullWidth={false}
             disabled={discountCode === ""}
-            customStyle="p-0 ml-s h-[35px] w-[32%] !rounded-none"
+            customStyle="p-0 !h-[32px] ml-s h-[35px] w-[32%] !rounded-none"
             onClickFunc={addDiscountCode}
           />
         </div>
