@@ -6,7 +6,7 @@ import OrderTotals from "./order-total";
 import Discount from "./discount";
 
 export default function FullCarts() {
-  const { carts } = createCartStore();
+  const { carts, appliedDiscountCodes } = createCartStore();
   return (
     <div className="mt-m px-m bg-[#FBF7F4] rounded-s">
       <div className="max-h-[175px] overflow-y-auto scrollbar-hide">
@@ -47,10 +47,11 @@ export default function FullCarts() {
           ))}
       </div>
 
-      <div className="pt-s pb-s w-full border border-t-transparent border-l-transparent border-r-transparent">
-        <Discount showApplyDiscount={false} allowEdit={false} />
-      </div>
-
+      {appliedDiscountCodes.length > 0 && (
+        <div className="pt-s pb-s w-full border border-t-transparent border-l-transparent border-r-transparent">
+          <Discount showApplyDiscount={false} allowEdit={false} />
+        </div>
+      )}
       <div className="mt-xs">
         <OrderTotals smallTitle={true} />
       </div>
