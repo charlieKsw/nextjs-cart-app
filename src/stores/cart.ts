@@ -105,7 +105,7 @@ export const createCartStore = create<CartState>()(
         set({ discountCode: "" });
       },
       removeDiscountCode: (index: number) => {
-        if (!index) {
+        if (index < 0) {
           toast.error("discount code index not found");
           return;
         }
