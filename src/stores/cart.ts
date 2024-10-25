@@ -105,11 +105,12 @@ export const createCartStore = create<CartState>()(
         set({ discountCode: "" });
       },
       removeDiscountCode: (index: number) => {
-        const { appliedDiscountCodes } = get();
         if (!index) {
-          toast.error("discount code index not existed");
+          toast.error("discount code index not found");
           return;
         }
+
+        const { appliedDiscountCodes } = get();
 
         // Remove the discount code by index
         appliedDiscountCodes.splice(index, 1);
