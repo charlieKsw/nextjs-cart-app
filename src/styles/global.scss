@@ -1,0 +1,65 @@
+$primary: "#C73B0E";
+$secondary: "#B65335";
+
+body {
+  padding: 90px 115px;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #fbf8f5;
+
+  // For mobile screens smaller than 375px (e.g., iPhone SE)
+  @media (max-width: 375px) {
+    padding: 30px 20px;
+  }
+
+  // For screens up to 414px width (e.g., iPhone XR, iPhone 12 Pro)
+  @media (max-width: 414px) {
+    padding: 30px 25px;
+  }
+
+  // For screens up to 768px width (e.g., tablets like iPad Mini)
+  @media (max-width: 768px) {
+    padding: 30px 50px;
+  }
+
+  // For larger tablets (up to 1024px width, e.g., iPad Pro)
+  @media (max-width: 1024px) {
+    padding: 30px 80px;
+  }
+
+  // For larger desktop screens or any width beyond 1024px
+  @media (min-width: 1025px) {
+    padding: 90px 115px;
+  }
+}
+
+button {
+  width: auto;
+  height: 50px;
+  background: $primary;
+  color: #e7ab91;
+  border-radius: 50px;
+  font-size: 14px;
+  transition: 0.7s;
+  font-weight: 600;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    162deg,
+    rgba(0, 0, 0, 1) 0%,
+    $primary 0%,
+    $secondary 100%
+  );
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.Toastify__toast {
+  width: max-content;
+}
