@@ -75,7 +75,7 @@ This will allow you to temporarily bypass CORS restrictions that imposed by the 
 To set up the project locally, follow these steps:
 
 1. Clone the repository:
-   git clone https://github.com/your-username/nextjs-cart-app.git
+   git clone https://github.com/charlieKsw/nextjs-cart-app.git
    cd nextjs-cart-app
 
 2. Install dependencies
