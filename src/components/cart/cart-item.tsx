@@ -19,8 +19,8 @@ export default function CartItem(props: ICartItem) {
         {/* Quantity & Total */}
         <div className="flex pt-s py-s justify-start items-center w-[100%] md:w-[30%]">
           <p className="txt text-warmBrown">{cart.qty > 0 && cart.qty}x</p>
-          <p className="label ml-[15px]">@{cart.price}</p>
-          <p className="label ml-xxs">${cart.price * cart.qty}</p>
+          <p className="label ml-[15px]">@{cart.price.toFixed(2)}</p>
+          <p className="label ml-xxs">${(cart.price * cart.qty).toFixed(2)}</p>
         </div>
       </div>
 

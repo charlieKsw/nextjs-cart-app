@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useMemo } from "react";
 import ImageContainer from "../image";
 import { createCartStore, IProduct } from "@/stores/cart";
 import QtyCounter from "./counter";
@@ -12,7 +12,7 @@ export default function ProductItem(props: IProductItem) {
   const { product } = props;
   const { addToCart, carts } = createCartStore();
 
-  const isSelected = useCallback(() => {
+  const isSelected = useMemo(() => {
     return carts[product.id] ? true : false;
   }, [carts, product]);
 
@@ -36,16 +36,16 @@ export default function ProductItem(props: IProductItem) {
           backgroundImage: `url(${getBackgroundImage()})`,
         }}
         className={`w-full md:w-[250px] h-[250px] relative bg-center bg-cover rounded-lg
-          ${isSelected() && "border-primary border-[2px] shadow-md"}
+          ${isSelected && "border-primary border-[2px] shadow-md"}
         `}
       >
         {/* If product is selected, show quantity controls */}
         <div
           className={`absolute bottom-[-17%] left-[50%] transform -translate-x-[50%] -translate-y-[65%] flex justify-center items-center py-s ${
-            isSelected() ? "bg-primary" : "bg-white"
-          } border border-grayBorder min-w-[70%] rounded-lg u`}
+            isSelected ? "bg-primary" : "bg-white"
+          } border border-grayBorder min-w-[70%] rounded-lg`}
         >
-          {isSelected() ? (
+          {isSelected ? (
             <QtyCounter product={product} />
           ) : (
             // If not selected, show "Add to Cart" button

@@ -82,20 +82,21 @@ export const createCartStore = create<CartState>()(
       appliedDiscountCodes: [],
       addDiscountCode: () => {
         const { appliedDiscountCodes, discountCode } = get();
+        const trimCodeSpace = discountCode.trim();
 
-        if (!validDiscountCode.includes(discountCode)) {
+        if (!validDiscountCode.includes(trimCodeSpace)) {
           toast.error("invalid discount code");
           return;
         }
 
         if (
-          appliedDiscountCodes.findIndex((code) => discountCode === code) > -1
+          appliedDiscountCodes.findIndex((code) => trimCodeSpace === code) > -1
         ) {
           toast.warn("discount code have already applied");
           return;
         }
 
-        appliedDiscountCodes.push(discountCode);
+        appliedDiscountCodes.push(trimCodeSpace);
 
         set({
           appliedDiscountCodes,
