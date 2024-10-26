@@ -61,15 +61,6 @@ interface CartState {
   createOrder: () => void;
 }
 
-const axiosInstance = axios.create({
-  baseURL: apiEndpoint,
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "*",
-    "Access-Control-Allow-Credentials": true,
-  },
-});
-
 const validDiscountCode = ["HAPPYHOURS", "BUYGETONE"];
 
 export const createCartStore = create<CartState>()(

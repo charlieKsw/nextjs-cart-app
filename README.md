@@ -95,7 +95,7 @@ After cloning the repository, install the dependencies using npm install Start t
 
 ## Deployment
 
-The project is deployed using Vercel. Visit `https://nextjs-cart-app-sw4o-kiluxeslo-charlieksws-projects.vercel.app/` for production version.
+The project is deployed using Vercel. Visit `https://nextjs-cart-app-sw4o.vercel.app/` for production version.
 
 **Resources**
 
