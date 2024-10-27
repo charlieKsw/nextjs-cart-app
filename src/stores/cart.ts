@@ -2,7 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { toast } from "react-toastify";
-import { apiEndpoint, apiKey } from "../config";
+import { apiKey } from "../config";
 import { setHeader } from "./api";
 
 interface IProductImg {
@@ -128,7 +128,7 @@ export const createCartStore = create<CartState>()(
       setIsLoadingOrder: (isLoadingOrder: boolean) => {
         set({ isLoadingOrder });
       },
-      isLoadingProduct: false,
+      isLoadingProduct: true,
       setIsLoadingProduct: (isLoadingProduct: boolean) => {
         set({ isLoadingProduct });
       },
@@ -234,9 +234,7 @@ export const createCartStore = create<CartState>()(
 
       getProducts: async () => {
         try {
-          set({ isLoadingProduct: true });
-
-          const response = await axios.get(`${apiEndpoint}/product`);
+          const response = await axios.get("/api/product");
 
           set({ isLoadingProduct: false });
 
@@ -251,6 +249,10 @@ export const createCartStore = create<CartState>()(
 
       createOrder: async () => {
         try {
+          if (!apiKey) {
+            toast.warn("apikey not found");
+            return;
+          }
           set({ isLoadingOrder: true });
           const { carts, isMobile } = get();
 
@@ -271,7 +273,7 @@ export const createCartStore = create<CartState>()(
 
           const body = formateData(carts);
           const response = await axios.post(
-            `${apiEndpoint}/order`,
+            `/api/order`,
             {
               ...body,
             },
