@@ -1,5 +1,18 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/api/product",
+        destination: "https://orderfoodonline.deno.dev/api/product",
+      },
+      {
+        source: "/api/order",
+        destination: "https://orderfoodonline.deno.dev/api/order",
+      },
+    ];
+  },
   trailingSlash: true,
   output: "export",
   experimental: {
