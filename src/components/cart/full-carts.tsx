@@ -8,7 +8,7 @@ import Discount from "./discount";
 export default function FullCarts() {
   const { carts, appliedDiscountCodes } = createCartStore();
   return (
-    <div className="mt-m px-m bg-[#FBF7F4] rounded-s">
+    <div className="mt-m px-m pb-xs bg-[#FBF7F4] rounded-s">
       <div className="max-h-[175px] overflow-y-auto scrollbar-hide">
         {Object.keys(carts).length > 0 &&
           Object.values(carts).map((cart, key) => (

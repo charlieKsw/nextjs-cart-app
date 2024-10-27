@@ -1,4 +1,9 @@
 $fontFamily: "Red Hat Text", sans-serif;
+$labelColor: #aca09c;
+$txtColor: #77706d;
+$titleColor: #6e6461;
+$darkBrownColor: #2f1d19;
+$smokyBrownColor: #483a37;
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -43,24 +48,24 @@ input {
   font-family: $fontFamily !important;
   font-weight: 600 !important;
   font-size: 14px !important;
-  color: #716a67 !important;
+  color: $txtColor !important;
 }
 
 p {
   font-family: $fontFamily;
   font-weight: 600;
   font-size: 16px;
-  color: #77706d;
+  color: $txtColor;
 }
 
 p.modalTitle {
   font-size: 40px;
-  color: #2f1d19;
+  color: $darkBrownColor;
 }
 
 p.label {
   font-size: 12px;
-  color: #aca09c;
+  color: $labelColor;
 }
 
 p.txt {
@@ -69,10 +74,10 @@ p.txt {
 
 p.title {
   font-size: 14px;
-  color: #6e6461;
+  color: $titleColor;
 }
 
 p.total {
   font-size: 22px;
-  color: #483a37;
+  color: $smokyBrownColor;
 }

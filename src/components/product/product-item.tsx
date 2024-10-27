@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import ImageContainer from "../image";
 import { createCartStore, IProduct } from "@/stores/cart";
 import QtyCounter from "./counter";
@@ -10,13 +10,11 @@ interface IProductItem {
 
 export default function ProductItem(props: IProductItem) {
   const { product } = props;
+
   const { addToCart, carts } = createCartStore();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  const isSelected = useMemo(() => {
-    return carts[product.id] ? true : false;
-  }, [carts, product]);
-
-  const getBackgroundImage = () => {
+  const getBackgroundImage = useCallback(() => {
     if (typeof window === "undefined") {
       return product.image.desktop;
     }
@@ -27,7 +25,17 @@ export default function ProductItem(props: IProductItem) {
     } else {
       return product.image.mobile;
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = getBackgroundImage();
+    img.onload = () => setIsImageLoaded(true);
+  }, [product, getBackgroundImage]);
+
+  const isSelected = useMemo(() => {
+    return carts[product.id] ? true : false;
+  }, [carts, product]);
 
   return (
     <div className="w-full mb-m">
@@ -36,6 +44,7 @@ export default function ProductItem(props: IProductItem) {
           backgroundImage: `url(${getBackgroundImage()})`,
         }}
         className={`w-full md:w-[250px] h-[250px] relative bg-center bg-cover rounded-lg
+        ${isImageLoaded ? "blur-0" : "blur-md skeleton"}
           ${isSelected && "border-primary border-[2px] shadow-md"}
         `}
       >

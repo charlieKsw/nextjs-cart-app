@@ -5,9 +5,10 @@ import { createCartStore } from "@/stores/cart";
 import Carts from "@/components/cart/carts";
 import Products from "@/components/product/products";
 import OrderConfirmModal from "../components/modal/order-confirm-modal";
+import EmptyCart from "@/components/cart/empty-cart";
 
 function Home() {
-  const { setIsMobile } = createCartStore();
+  const { products, setIsMobile } = createCartStore();
 
   // Detect Mobile or web mode
   useEffect(() => {
@@ -32,7 +33,7 @@ function Home() {
 
         {/* Carts Section */}
         <div className="flex flex-col flex-[0.3] h-fit lg:w-[385px] xl:w-[385px] w-auto bg-white px-m py-l">
-          <Carts />
+          {products.length > 0 ? <Carts /> : <EmptyCart />}
         </div>
       </div>
 

@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import ProductItem from "./product-item";
 import { LoadingIcon } from "../loading-icon";
 import { createCartStore } from "@/stores/cart";
-import { Empty } from "antd";
+import ImageContainer from "../image";
+import EmptyList from "./empty-list";
 
 export default function Products() {
   const { products, getProducts, isLoadingProduct } = createCartStore();
@@ -21,8 +22,8 @@ export default function Products() {
       )}
 
       {!isLoadingProduct && products.length === 0 && (
-        <div className="flex flex-col justify-center w-full h-">
-          <Empty />
+        <div className="flex flex-col justify-center w-full m-l">
+          <EmptyList />
         </div>
       )}
 

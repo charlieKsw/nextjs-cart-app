@@ -23,7 +23,7 @@ export default function OrderTotals(props: IOrderTotals) {
               <span className="px-[4px] text-primary text-xxs">
                 (saved ${getSavedAmount().toFixed(2)})
               </span>
-              <span className="text-[8px] text-secondary line-through">
+              <span className="text-xxs text-secondary line-through">
                 ${originalTotal.toFixed(2)}
               </span>
             </>

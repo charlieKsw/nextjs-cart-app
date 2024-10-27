@@ -25,7 +25,6 @@ export default function Carts() {
   return (
     <>
       <h2>{`Your Cart (${Object.keys(carts).length})`}</h2>
-      {/* Empty Cart */}
       {Object.keys(carts).length === 0 && (
         <div className="mt-l flex flex-col items-center">
           <ImageContainer

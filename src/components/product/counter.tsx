@@ -22,7 +22,7 @@ export default function QtyCounter(props: IQtyCounter) {
       />
       {/* Quantity */}
       <div>
-        <p className="txt text-[#EAB096]">{carts[product.id].qty}</p>
+        <p className="txt text-[#EAB096]">{carts[product.id]?.qty}</p>
       </div>
       {/* Plus Icon */}
       <ImageContainer

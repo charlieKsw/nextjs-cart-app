@@ -1,30 +1,32 @@
-$primary: "#C73B0E";
-$secondary: "#B65335";
+$primary: #c73b0e;
+$secondary: #b65335;
+$buttonPrimary: #e7ab91;
+$backgroundColor: #fbf8f5;
+$lightGray: #f0f0f0;
+$mediumGray: #e0e0e0;
 
 body {
-  padding: 90px 115px;
+  padding: 8% 10%;
   min-height: 100vh;
   height: 100%;
-  background-color: #fbf8f5;
+  background-color: $backgroundColor;
 
   // For mobile screens smaller than 375px (e.g., iPhone SE)
   @media (max-width: 375px) {
-    padding: 30px 20px;
+    padding: 8% 5%;
   }
-
   // For screens up to 414px width (e.g., iPhone XR, iPhone 12 Pro)
   @media (max-width: 414px) {
-    padding: 30px 25px;
+    padding: 8% 6%;
   }
-
   // For screens up to 768px width (e.g., tablets like iPad Mini)
   @media (max-width: 768px) {
-    padding: 30px 50px;
+    padding: 8% 8%;
   }
 
-  // For larger desktop screens or any width beyond 1024px
+  // Larger screen sizes
   @media (min-width: 1025px) {
-    padding: 90px 115px;
+    padding: 5% 8%;
   }
 }
 
@@ -32,7 +34,7 @@ button {
   width: auto;
   height: 50px;
   background: $primary;
-  color: #e7ab91;
+  color: $buttonPrimary;
   border-radius: 50px;
   font-size: 14px;
   transition: 0.7s;
@@ -57,4 +59,32 @@ button {
 
 .Toastify__toast {
   width: auto;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    $lightGray 25%,
+    $mediumGray 50%,
+    $lightGray 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.blur-md {
+  filter: blur(10px);
+}
+
+.blur-0 {
+  filter: blur(0);
 }
