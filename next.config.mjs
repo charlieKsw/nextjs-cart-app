@@ -4,12 +4,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/product",
-        destination: "https://orderfoodonline.deno.dev/api/product",
-      },
-      {
-        source: "/api/order",
-        destination: "https://orderfoodonline.deno.dev/api/order",
+        source: "/api/:path*",
+        destination: "https://orderfoodonline.deno.dev/api/:path*",
       },
     ];
   },

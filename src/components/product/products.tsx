@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import ProductItem from "./product-item";
 import { LoadingIcon } from "../loading-icon";
 import { createCartStore } from "@/stores/cart";
-import ImageContainer from "../image";
 import EmptyList from "./empty-list";
 
 export default function Products() {

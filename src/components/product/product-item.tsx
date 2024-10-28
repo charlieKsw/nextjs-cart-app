@@ -34,7 +34,7 @@ export default function ProductItem(props: IProductItem) {
   }, [product, getBackgroundImage]);
 
   const isSelected = useMemo(() => {
-    return carts[product.id] ? true : false;
+    return !isNaN(carts[product.id]?.qty);
   }, [carts, product]);
 
   return (
@@ -45,16 +45,20 @@ export default function ProductItem(props: IProductItem) {
         }}
         className={`w-full md:w-[250px] h-[250px] relative bg-center bg-cover rounded-lg
         ${isImageLoaded ? "blur-0" : "blur-md skeleton"}
-          ${isSelected && "border-primary border-[2px] shadow-md"}
+          ${
+            isSelected &&
+            carts[product.id]?.qty &&
+            "border-primary border-[2px] shadow-md"
+          }
         `}
       >
         {/* If product is selected, show quantity controls */}
         <div
           className={`absolute bottom-[-17%] left-[50%] transform -translate-x-[50%] -translate-y-[65%] flex justify-center items-center py-s ${
-            isSelected ? "bg-primary" : "bg-white"
+            isSelected && carts[product.id]?.qty ? "bg-primary" : "bg-white"
           } border border-grayBorder min-w-[70%] rounded-lg`}
         >
-          {isSelected ? (
+          {isSelected && carts[product.id]?.qty ? (
             <QtyCounter product={product} />
           ) : (
             // If not selected, show "Add to Cart" button

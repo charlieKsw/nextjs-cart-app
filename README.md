@@ -82,7 +82,7 @@ To set up the project locally, follow these steps:
    npm install
 
 3. Set up environment variables: Create a .env.local file in the root directory and add any necessary environment variables. For example:
-   NEXT_PUBLIC_API_URL=https://orderfoodonline.deno.dev/api
+   NEXT_PUBLIC_API_BASE_URL=https://orderfoodonline.deno.dev/api
 
 4. Run the development server:
    npm run dev
