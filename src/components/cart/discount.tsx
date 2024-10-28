@@ -24,7 +24,7 @@ export default function Discount(props: IDiscount) {
       {showApplyDiscount && (
         <div className="flex flex-row items-center mt-m mb-s">
           <input
-            className="border flex flex-1 border-secondary rounded-s px-xs py-xxs text-[#77706d] focus-visible:outline-primary"
+            className="border flex flex-1 border-secondary rounded-s px-xs py-xxs text-darkBrown focus-visible:outline-primary"
             value={discountCode}
             placeholder="Enter discount code"
             onChange={(e) => setDiscountCode(e.target.value)}
@@ -42,7 +42,7 @@ export default function Discount(props: IDiscount) {
 
       {appliedDiscountCodes.length > 0 && (
         <div className="flex flex-col">
-          <p className="text-xxs text-[#837975]">Applied Code</p>
+          <p className="text-xxs text-darkBrown">Applied Code</p>
           <div className="flex flex-wrap gap-4 mt-s">
             {appliedDiscountCodes.map((code, index) => {
               return (

@@ -59,9 +59,9 @@ export default function Carts() {
             <ImageContainer src="/assets/tree.png" alt="tree-icon" />
             <div className="ml-xs py-xs">
               <p className="txt">
-                This is a
-                <span className="text-[#837975] px-[3px]">carbon-neutral</span>
-                delivery
+                <span className="text-lightGray">This is a</span>
+                <span className="text-darkBrown px-[3px]">carbon-neutral</span>
+                <span className="text-lightGray">delivery</span>
               </p>
             </div>
           </div>
